@@ -5,6 +5,8 @@
       <root url="file://$USER_HOME$/.android/build-cache/a728de47b7f69e106dee5790deef9bbc84664329/output/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.litepal.android/core/1.3.2/f8457625e38f5d86bcdacf8b3b1a11535c7730fe/core-1.3.2-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
