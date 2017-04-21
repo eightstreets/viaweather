@@ -2,9 +2,11 @@ package com.viaweather.android.utils;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.viaweather.android.db.City;
 import com.viaweather.android.db.County;
 import com.viaweather.android.db.Province;
+import com.viaweather.android.gson.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -79,5 +81,20 @@ public class Utillity {
             }
         }
         return false;
+    }
+    /**
+     * 将返回的JSON数据解析成Weather实体类
+     */
+    public static Weather handleWeatherResponse(String response){
+        try {
+            //为什么改变先转换为JSON对象然后转换为JSON数组，和之前不一样的地方在哪里?
+            JSONObject jsonObject=new JSONObject(response);
+            JSONArray jsonArray=jsonObject.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent, Weather.class);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        return null;//为什么要返回空？
     }
 }
